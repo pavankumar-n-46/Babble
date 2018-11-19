@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328921A2FAA10094B3F5 /* GradientView.swift */; };
+		5060328D21A324810094B3F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328C21A324810094B3F5 /* Constants.swift */; };
+		5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328E21A32E960094B3F5 /* LoginVC.swift */; };
 		5098B96821A29A7100B13AB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098B96721A29A7100B13AB9 /* AppDelegate.swift */; };
 		5098B96D21A29A7100B13AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5098B96B21A29A7100B13AB9 /* Main.storyboard */; };
 		5098B96F21A29A7200B13AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5098B96E21A29A7200B13AB9 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		5060328921A2FAA10094B3F5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		5060328C21A324810094B3F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5060328E21A32E960094B3F5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5098B96421A29A7100B13AB9 /* Babble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5098B96721A29A7100B13AB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5098B96C21A29A7100B13AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5060328B21A324690094B3F5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5060328C21A324810094B3F5 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		5098B95B21A29A7100B13AB9 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +81,7 @@
 		5098B96621A29A7100B13AB9 /* Babble */ = {
 			isa = PBXGroup;
 			children = (
+				5060328B21A324690094B3F5 /* Utilities */,
 				5098B98321A2A02B00B13AB9 /* View */,
 				5098B98221A2A02300B13AB9 /* Model */,
 				5098B98121A2A01A00B13AB9 /* Controller */,
@@ -97,6 +110,7 @@
 			children = (
 				5098B98421A2A04600B13AB9 /* ChatVC.swift */,
 				5098B98621A2A05D00B13AB9 /* ChannelVC.swift */,
+				5060328E21A32E960094B3F5 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -254,9 +268,11 @@
 			files = (
 				5098B98521A2A04600B13AB9 /* ChatVC.swift in Sources */,
 				5098B96821A29A7100B13AB9 /* AppDelegate.swift in Sources */,
+				5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */,
 				5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */,
 				5098B98721A2A05D00B13AB9 /* ChannelVC.swift in Sources */,
 				5098B98A21A2A8D700B13AB9 /* SWRevealViewController.m in Sources */,
+				5060328D21A324810094B3F5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
