@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		5098B96821A29A7100B13AB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098B96721A29A7100B13AB9 /* AppDelegate.swift */; };
-		5098B96A21A29A7100B13AB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098B96921A29A7100B13AB9 /* ViewController.swift */; };
 		5098B96D21A29A7100B13AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5098B96B21A29A7100B13AB9 /* Main.storyboard */; };
 		5098B96F21A29A7200B13AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5098B96E21A29A7200B13AB9 /* Assets.xcassets */; };
 		5098B97221A29A7200B13AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5098B97021A29A7200B13AB9 /* LaunchScreen.storyboard */; };
+		5098B98521A2A04600B13AB9 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098B98421A2A04600B13AB9 /* ChatVC.swift */; };
+		5098B98721A2A05D00B13AB9 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098B98621A2A05D00B13AB9 /* ChannelVC.swift */; };
+		5098B98A21A2A8D700B13AB9 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5098B98921A2A8D700B13AB9 /* SWRevealViewController.m */; };
 		CA28C1FCB130CFCAB922636C /* Pods_Babble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5098B96421A29A7100B13AB9 /* Babble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5098B96721A29A7100B13AB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5098B96921A29A7100B13AB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5098B96C21A29A7100B13AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5098B96E21A29A7200B13AB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5098B97121A29A7200B13AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5098B97321A29A7200B13AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5098B98421A2A04600B13AB9 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		5098B98621A2A05D00B13AB9 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		5098B98821A2A8D700B13AB9 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		5098B98921A2A8D700B13AB9 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		5098B98C21A2A93900B13AB9 /* Babble-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Babble-bridging-header.h"; sourceTree = "<group>"; };
 		BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.release.xcconfig"; sourceTree = "<group>"; };
 		FE28537587EF0563FF2EC1FC /* Pods-Babble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,14 +67,50 @@
 		5098B96621A29A7100B13AB9 /* Babble */ = {
 			isa = PBXGroup;
 			children = (
-				5098B96721A29A7100B13AB9 /* AppDelegate.swift */,
-				5098B96921A29A7100B13AB9 /* ViewController.swift */,
+				5098B98321A2A02B00B13AB9 /* View */,
+				5098B98221A2A02300B13AB9 /* Model */,
+				5098B98121A2A01A00B13AB9 /* Controller */,
+				5098B97921A29E6900B13AB9 /* Supporting files */,
 				5098B96B21A29A7100B13AB9 /* Main.storyboard */,
-				5098B96E21A29A7200B13AB9 /* Assets.xcassets */,
-				5098B97021A29A7200B13AB9 /* LaunchScreen.storyboard */,
 				5098B97321A29A7200B13AB9 /* Info.plist */,
 			);
 			path = Babble;
+			sourceTree = "<group>";
+		};
+		5098B97921A29E6900B13AB9 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5098B98821A2A8D700B13AB9 /* SWRevealViewController.h */,
+				5098B98921A2A8D700B13AB9 /* SWRevealViewController.m */,
+				5098B96721A29A7100B13AB9 /* AppDelegate.swift */,
+				5098B96E21A29A7200B13AB9 /* Assets.xcassets */,
+				5098B97021A29A7200B13AB9 /* LaunchScreen.storyboard */,
+				5098B98C21A2A93900B13AB9 /* Babble-bridging-header.h */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		5098B98121A2A01A00B13AB9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5098B98421A2A04600B13AB9 /* ChatVC.swift */,
+				5098B98621A2A05D00B13AB9 /* ChannelVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5098B98221A2A02300B13AB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5098B98321A2A02B00B13AB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6926DAC223FB5C0CB14F5C64 /* Pods */ = {
@@ -122,6 +164,7 @@
 				TargetAttributes = {
 					5098B96321A29A7100B13AB9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -206,8 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5098B96A21A29A7100B13AB9 /* ViewController.swift in Sources */,
+				5098B98521A2A04600B13AB9 /* ChatVC.swift in Sources */,
 				5098B96821A29A7100B13AB9 /* AppDelegate.swift in Sources */,
+				5098B98721A2A05D00B13AB9 /* ChannelVC.swift in Sources */,
+				5098B98A21A2A8D700B13AB9 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,15 +399,19 @@
 			baseConfigurationReference = FE28537587EF0563FF2EC1FC /* Pods-Babble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7B5W83C7Y;
 				INFOPLIST_FILE = Babble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vervesally.Babble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Babble/Supporting files/Babble-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -373,15 +422,18 @@
 			baseConfigurationReference = CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7B5W83C7Y;
 				INFOPLIST_FILE = Babble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vervesally.Babble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Babble/Supporting files/Babble-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
