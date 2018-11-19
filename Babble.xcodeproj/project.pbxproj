@@ -12,6 +12,7 @@
 		5098B96D21A29A7100B13AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5098B96B21A29A7100B13AB9 /* Main.storyboard */; };
 		5098B96F21A29A7200B13AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5098B96E21A29A7200B13AB9 /* Assets.xcassets */; };
 		5098B97221A29A7200B13AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5098B97021A29A7200B13AB9 /* LaunchScreen.storyboard */; };
+		CA28C1FCB130CFCAB922636C /* Pods_Babble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		5098B96E21A29A7200B13AB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5098B97121A29A7200B13AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5098B97321A29A7200B13AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.release.xcconfig"; sourceTree = "<group>"; };
+		FE28537587EF0563FF2EC1FC /* Pods-Babble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA28C1FCB130CFCAB922636C /* Pods_Babble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				5098B96621A29A7100B13AB9 /* Babble */,
 				5098B96521A29A7100B13AB9 /* Products */,
+				6926DAC223FB5C0CB14F5C64 /* Pods */,
+				CFED82C52F6F11EBD1E8C549 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = Babble;
 			sourceTree = "<group>";
 		};
+		6926DAC223FB5C0CB14F5C64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE28537587EF0563FF2EC1FC /* Pods-Babble.debug.xcconfig */,
+				CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CFED82C52F6F11EBD1E8C549 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5098B97621A29A7200B13AB9 /* Build configuration list for PBXNativeTarget "Babble" */;
 			buildPhases = (
+				685645A8203DA095FE980CA5 /* [CP] Check Pods Manifest.lock */,
 				5098B96021A29A7100B13AB9 /* Sources */,
 				5098B96121A29A7100B13AB9 /* Frameworks */,
 				5098B96221A29A7100B13AB9 /* Resources */,
+				D9AF720E4921CEAACCAF28EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		685645A8203DA095FE980CA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Babble-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9AF720E4921CEAACCAF28EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Babble/Pods-Babble-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Babble/Pods-Babble-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5098B96021A29A7100B13AB9 /* Sources */ = {
@@ -280,6 +351,7 @@
 		};
 		5098B97721A29A7200B13AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE28537587EF0563FF2EC1FC /* Pods-Babble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +370,7 @@
 		};
 		5098B97821A29A7200B13AB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
