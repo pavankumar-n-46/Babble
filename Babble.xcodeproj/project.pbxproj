@@ -19,6 +19,7 @@
 		5098B98A21A2A8D700B13AB9 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5098B98921A2A8D700B13AB9 /* SWRevealViewController.m */; };
 		50BD632721A3DF7500E109B3 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */; };
 		50BD632A21A43DE800E109B3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632921A43DE800E109B3 /* AuthService.swift */; };
+		50BD632C21A459A900E109B3 /* RoundedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632B21A459A900E109B3 /* RoundedButtons.swift */; };
 		CA28C1FCB130CFCAB922636C /* Pods_Babble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		5098B98C21A2A93900B13AB9 /* Babble-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Babble-bridging-header.h"; sourceTree = "<group>"; };
 		50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		50BD632921A43DE800E109B3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		50BD632B21A459A900E109B3 /* RoundedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtons.swift; sourceTree = "<group>"; };
 		BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.release.xcconfig"; sourceTree = "<group>"; };
 		FE28537587EF0563FF2EC1FC /* Pods-Babble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				5060328921A2FAA10094B3F5 /* GradientView.swift */,
+				50BD632B21A459A900E109B3 /* RoundedButtons.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5098B98521A2A04600B13AB9 /* ChatVC.swift in Sources */,
+				50BD632C21A459A900E109B3 /* RoundedButtons.swift in Sources */,
 				5098B96821A29A7100B13AB9 /* AppDelegate.swift in Sources */,
 				50BD632721A3DF7500E109B3 /* CreateAccountVC.swift in Sources */,
 				5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */,
