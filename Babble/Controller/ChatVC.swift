@@ -15,7 +15,10 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ///SWReveal button, which specifies either to reveal or hide the hamburger menu upon touching the hamburger.
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        
+        ///this are the gustures to for the SWRevealViewController.
         self.view.addGestureRecognizer((self.revealViewController()!.panGestureRecognizer()))
         self.view.addGestureRecognizer(self.revealViewController()!.tapGestureRecognizer())
     }

@@ -18,6 +18,7 @@
 		5098B98721A2A05D00B13AB9 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098B98621A2A05D00B13AB9 /* ChannelVC.swift */; };
 		5098B98A21A2A8D700B13AB9 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5098B98921A2A8D700B13AB9 /* SWRevealViewController.m */; };
 		50BD632721A3DF7500E109B3 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */; };
+		50BD632A21A43DE800E109B3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632921A43DE800E109B3 /* AuthService.swift */; };
 		CA28C1FCB130CFCAB922636C /* Pods_Babble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		5098B98921A2A8D700B13AB9 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5098B98C21A2A93900B13AB9 /* Babble-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Babble-bridging-header.h"; sourceTree = "<group>"; };
 		50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		50BD632921A43DE800E109B3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.release.xcconfig"; sourceTree = "<group>"; };
 		FE28537587EF0563FF2EC1FC /* Pods-Babble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		5098B96621A29A7100B13AB9 /* Babble */ = {
 			isa = PBXGroup;
 			children = (
+				50BD632821A43DCD00E109B3 /* Services */,
 				5060328B21A324690094B3F5 /* Utilities */,
 				5098B98321A2A02B00B13AB9 /* View */,
 				5098B98221A2A02300B13AB9 /* Model */,
@@ -131,6 +134,14 @@
 				5060328921A2FAA10094B3F5 /* GradientView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		50BD632821A43DCD00E109B3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				50BD632921A43DE800E109B3 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		6926DAC223FB5C0CB14F5C64 /* Pods */ = {
@@ -275,6 +286,7 @@
 				5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */,
 				5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */,
 				5098B98721A2A05D00B13AB9 /* ChannelVC.swift in Sources */,
+				50BD632A21A43DE800E109B3 /* AuthService.swift in Sources */,
 				5098B98A21A2A8D700B13AB9 /* SWRevealViewController.m in Sources */,
 				5060328D21A324810094B3F5 /* Constants.swift in Sources */,
 			);

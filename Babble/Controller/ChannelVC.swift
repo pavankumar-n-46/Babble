@@ -16,11 +16,12 @@ class ChannelVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.revealViewController() != nil{
-            self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
-        }
+        
+        ///specifies the width of which the chatVC should slide to. and the amount the ChannelVC should reveal.
+        self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
     }
     
+    //MARK:- navigation to LoginVC
     @IBAction func loginBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
     }

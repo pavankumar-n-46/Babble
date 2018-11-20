@@ -14,6 +14,8 @@ class CreateAccountVC: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    ///cancels the opeartion and segues back to the channel VC.
     @IBAction func cancelBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: UNWIND, sender: nil)
     }
