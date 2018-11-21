@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class AuthService{
     ///Singleton class.
@@ -57,12 +58,7 @@ class AuthService{
         
         /// converting the email into lower-case.
         let lowerCasedEmail = email.lowercased()
-        
-        /// builds the header of the request.
-        let header = [
-            "Content-type" : "application/json; charset=utf-8"
-        ]
-        
+
         /// builds the body of the request.
         let body : [String:Any] = [
             "email" : lowerCasedEmail,
@@ -70,7 +66,7 @@ class AuthService{
         ]
         
         ///Alamofire request which sends the request to create a new user and gives the corresponding response.
-        request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+        request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
             if response.result.error == nil {
                 completion(true)
             }else{
@@ -79,6 +75,45 @@ class AuthService{
             }
         }
     }
+    
+    /// initiates the request to login an user.
+    ///
+    /// - Parameters:
+    ///   - email: email of the login user.
+    ///   - password: password of the login user.
+    ///   - completion: completionhandler block which says either request is completed or failed.
+    func loginUser(email: String, password: String, completion: @escaping completionHandler){
+        
+        /// converting the email into lower-case.
+        let lowerCasedEmail = email.lowercased()
+
+        /// builds the body of the request.
+        let body : [String:Any] = [
+            "email" : lowerCasedEmail,
+            "password" : password
+        ]
+        
+        ///Alamofire request which sends the request to create a new user and gives the corresponding response.
+        request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                
+                //using SwiftJSON
+                guard let data = response.data else {return}
+                let json = JSON(data: data)
+                self.userEmail = json["user"].stringValue
+                self.authToken = json["token"].stringValue
+                completion(true)
+                
+            }else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+
+    }
+    
+    
 
 }
 
