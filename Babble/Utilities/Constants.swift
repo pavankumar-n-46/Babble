@@ -14,6 +14,7 @@ typealias completionHandler = (_ success:Bool) -> ()
 let BASE_URL = "https://babble4babble.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
 let URL_LOGIN = "\(BASE_URL)account/login"
+let URL_USER_ADD = "\(BASE_URL)user/add"
 
 //segues
 let TO_LOGIN = "toLogin"
@@ -27,3 +28,7 @@ let USER_EMAIL = "userEmail"
 
 //headers
 let HEADER = [ "Content-type" : "application/json; charset=utf-8" ]
+let HEADER_AUTH = [
+    "Authorization" : "Bearer \(AuthService.instance.authToken)",
+    "Content-type" : "application/json; charset=utf-8"
+]

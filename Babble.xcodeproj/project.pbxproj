@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501D59FB21A5BD88002981BC /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D59FA21A5BD88002981BC /* UserDataService.swift */; };
 		5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328921A2FAA10094B3F5 /* GradientView.swift */; };
 		5060328D21A324810094B3F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328C21A324810094B3F5 /* Constants.swift */; };
 		5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328E21A32E960094B3F5 /* LoginVC.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		501D59FA21A5BD88002981BC /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		5060328921A2FAA10094B3F5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5060328C21A324810094B3F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5060328E21A32E960094B3F5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				50BD632921A43DE800E109B3 /* AuthService.swift */,
+				501D59FA21A5BD88002981BC /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				5098B98521A2A04600B13AB9 /* ChatVC.swift in Sources */,
 				50BD632C21A459A900E109B3 /* RoundedButtons.swift in Sources */,
 				5098B96821A29A7100B13AB9 /* AppDelegate.swift in Sources */,
+				501D59FB21A5BD88002981BC /* UserDataService.swift in Sources */,
 				50BD632721A3DF7500E109B3 /* CreateAccountVC.swift in Sources */,
 				5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */,
 				5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */,

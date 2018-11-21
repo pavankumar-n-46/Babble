@@ -114,6 +114,51 @@ class AuthService{
     }
     
     
+    /// initiates the request to add user detils.
+    ///
+    /// - Parameters:
+    ///   - name: name of the user.
+    ///   - avatarName: choosen avatar name.
+    ///   - email: email id of user.
+    ///   - avatarColor: avatar color.
+    ///   - completion: gives bool as per result.
+    func createUser(name: String, avatarName: String, email: String, avatarColor: String, completion: @escaping completionHandler){
+        
+        /// converting the email into lower-case.
+        let lowerCasedEmail = email.lowercased()
+        
+        /// builds the body of the request.
+        let body : [String:Any] = [
+            "name": name,
+            "email": lowerCasedEmail,
+            "avatarName": avatarName,
+            "avatarColor" : avatarColor
+        ]
+     
+        request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON { (response) in
+            if response.result.error == nil {
+                
+                //using SwiftJSON
+                guard let data = response.data else {return}
+                let json = JSON(data: data)
+                let id = json["_id"].stringValue
+                let color = json["avatarColor"].stringValue
+                let avatarName = json["avatarName"].stringValue
+                let email = json["email"].stringValue
+                let name = json["name"].stringValue
+                
+                // setting the value in userDefaults.
+                UserDataService.instance.setUserData(id: id, name: name, email: email, avatarName: avatarName, color: color)
+                
+                completion(true)
+            }else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    
 
 }
 
