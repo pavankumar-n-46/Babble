@@ -31,6 +31,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func chooseAvatorPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
     }
     
     @IBAction func generateBgColorPressed(_ sender: Any) {
