@@ -22,8 +22,16 @@ class CreateAccountVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if UserDataService.instance.avatarName != ""{
+            userImage.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+        }
+    }
+
     
     ///cancels the opeartion and segues back to the channel VC.
     @IBAction func cancelBtnPressed(_ sender: Any) {
