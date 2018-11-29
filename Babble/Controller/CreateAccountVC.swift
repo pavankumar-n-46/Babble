@@ -15,13 +15,21 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     //variables
     var avatarName = "profileDefault"
     var avatarColor = "[0.5,0.5,0.5,1]"
+    var bgColor : UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action:#selector(handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(){
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,6 +37,9 @@ class CreateAccountVC: UIViewController {
         if UserDataService.instance.avatarName != ""{
             userImage.image = UIImage(named: UserDataService.instance.avatarName)
             avatarName = UserDataService.instance.avatarName
+        }
+        if avatarName.contains("light") && bgColor == nil{
+            userImage.backgroundColor = UIColor.lightGray
         }
     }
 
@@ -43,9 +54,18 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func generateBgColorPressed(_ sender: Any) {
+        let r = CGFloat(arc4random_uniform(255)) / 255
+        let g = CGFloat(arc4random_uniform(255)) / 255
+        let b = CGFloat(arc4random_uniform(255)) / 255
+        self.bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        UIView.animate(withDuration: 0.2){
+            self.userImage.backgroundColor = self.bgColor
+        }
     }
     
     @IBAction func createAccountPressed(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
         ///check to see whether the email and pass fields are non empty.
         guard let name = usernameTxt.text, usernameTxt.text != "" else { return }
         guard let email = emailTxt.text, emailTxt.text != "" else{ return }
@@ -59,9 +79,11 @@ class CreateAccountVC: UIViewController {
                     if success{
                         AuthService.instance.createUser(name: name, avatarName: self.avatarName, email: email, avatarColor: self.avatarColor, completion: { (success) in
                             if success{
+                                self.spinner.stopAnimating()
                                 //calls the add user method to add the user.
                                 print(UserDataService.instance.name , UserDataService.instance.avatarName )
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
+                                NotificationCenter.default.post(name: NOTIF_USER_DID_CHANGE, object: nil)
                             }
                         })
                     }

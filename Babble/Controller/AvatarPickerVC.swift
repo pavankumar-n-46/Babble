@@ -36,6 +36,7 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         return AvatarCell()
     }
     
+    ///dynamically adjust the size of the collection view cells size based on the device size.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var numOfcolumns : CGFloat = 3
         if UIScreen.main.bounds.width > 320{

@@ -105,7 +105,7 @@
                                 <rect key="frame" x="281" y="84" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fff-tC-YDQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fff-tC-YDQ" customClass="CircleImage" customModule="Babble" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Z76-4M-tcR"/>
@@ -421,12 +421,17 @@
                                     <action selector="chooseAvatorPressed:" destination="beS-xu-BWU" eventType="touchUpInside" id="2oT-vU-HUe"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="w4Z-5p-PvU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="w4Z-5p-PvU" customClass="CircleImage" customModule="Babble" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="314" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Bdp-Dd-EPu"/>
                                     <constraint firstAttribute="width" constant="100" id="v5D-Tq-dHa"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iv0-zM-k5g">
                                 <rect key="frame" x="88" y="449" width="199" height="26"/>
@@ -434,7 +439,7 @@
                                     <constraint firstAttribute="height" constant="26" id="G4W-Wa-8Fi"/>
                                     <constraint firstAttribute="width" constant="199" id="xJ2-OP-xMS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="Generate background color">
                                     <color key="titleColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -449,6 +454,10 @@
                                     <action selector="cancelBtnPressed:" destination="beS-xu-BWU" eventType="touchUpInside" id="2jw-i1-ghr"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3at-ko-cIN">
+                                <rect key="frame" x="169" y="494" width="37" height="37"/>
+                                <color key="color" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -465,6 +474,8 @@
                             <constraint firstItem="PHh-dV-89f" firstAttribute="centerX" secondItem="NuX-Zy-Mfu" secondAttribute="centerX" id="cLd-eZ-l7Z"/>
                             <constraint firstItem="rrs-R9-mtt" firstAttribute="bottom" secondItem="0vm-Mw-Y92" secondAttribute="bottom" constant="20" id="cZs-A3-5GS"/>
                             <constraint firstItem="0vm-Mw-Y92" firstAttribute="centerX" secondItem="NuX-Zy-Mfu" secondAttribute="centerX" id="fnh-3b-ec1"/>
+                            <constraint firstItem="3at-ko-cIN" firstAttribute="top" secondItem="Iv0-zM-k5g" secondAttribute="bottom" constant="19" id="keQ-9g-IDL"/>
+                            <constraint firstItem="3at-ko-cIN" firstAttribute="centerX" secondItem="NuX-Zy-Mfu" secondAttribute="centerX" id="smb-Dh-6Tj"/>
                             <constraint firstItem="w4Z-5p-PvU" firstAttribute="centerX" secondItem="NuX-Zy-Mfu" secondAttribute="centerX" id="uYl-I1-lRD"/>
                             <constraint firstItem="Iv0-zM-k5g" firstAttribute="top" secondItem="PHh-dV-89f" secondAttribute="bottom" constant="5" id="z9y-zJ-9YQ"/>
                         </constraints>
@@ -473,6 +484,7 @@
                     <connections>
                         <outlet property="emailTxt" destination="g1E-4x-cIl" id="gIq-Ys-ffk"/>
                         <outlet property="passTxt" destination="AMx-gN-jNm" id="K5i-rp-MbD"/>
+                        <outlet property="spinner" destination="3at-ko-cIN" id="mZ5-mz-QP5"/>
                         <outlet property="userImage" destination="w4Z-5p-PvU" id="c1Q-bi-DUg"/>
                         <outlet property="usernameTxt" destination="Hn6-nc-D0v" id="MfS-Ue-pq7"/>
                         <segue destination="jDM-bs-Mkd" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="2wP-RU-Qte"/>

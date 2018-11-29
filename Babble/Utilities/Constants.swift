@@ -33,3 +33,7 @@ let HEADER_AUTH = [
     "Authorization" : "Bearer \(AuthService.instance.authToken)",
     "Content-type" : "application/json; charset=utf-8"
 ]
+
+
+//notificaiton center
+let NOTIF_USER_DID_CHANGE = Notification.Name("notifUserDataChanged")
