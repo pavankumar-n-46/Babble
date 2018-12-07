@@ -179,6 +179,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="sMv-S0-aQB" id="vFt-hL-xOU"/>
+                        <outlet property="loginImg" destination="fff-tC-YDQ" id="AS3-xV-Yub"/>
                         <segue destination="MLq-ij-IGV" kind="show" identifier="toLogin" id="iFu-Ap-bLI"/>
                     </connections>
                 </viewController>
@@ -482,6 +483,7 @@
                         <viewLayoutGuide key="safeArea" id="rrs-R9-mtt"/>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="EE8-lq-R9i" id="G6b-nE-4yp"/>
                         <outlet property="emailTxt" destination="g1E-4x-cIl" id="gIq-Ys-ffk"/>
                         <outlet property="passTxt" destination="AMx-gN-jNm" id="K5i-rp-MbD"/>
                         <outlet property="spinner" destination="3at-ko-cIN" id="mZ5-mz-QP5"/>

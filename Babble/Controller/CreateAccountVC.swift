@@ -16,6 +16,7 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     //variables
     var avatarName = "profileDefault"
@@ -58,6 +59,7 @@ class CreateAccountVC: UIViewController {
         let g = CGFloat(arc4random_uniform(255)) / 255
         let b = CGFloat(arc4random_uniform(255)) / 255
         self.bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        self.avatarColor = "[\(r),\(g),\(b),1]"
         UIView.animate(withDuration: 0.2){
             self.userImage.backgroundColor = self.bgColor
         }
@@ -66,6 +68,7 @@ class CreateAccountVC: UIViewController {
     @IBAction func createAccountPressed(_ sender: Any) {
         spinner.isHidden = false
         spinner.startAnimating()
+        self.cancelBtn.isEnabled = false
         ///check to see whether the email and pass fields are non empty.
         guard let name = usernameTxt.text, usernameTxt.text != "" else { return }
         guard let email = emailTxt.text, emailTxt.text != "" else{ return }
@@ -82,8 +85,8 @@ class CreateAccountVC: UIViewController {
                                 self.spinner.stopAnimating()
                                 //calls the add user method to add the user.
                                 print(UserDataService.instance.name , UserDataService.instance.avatarName )
-                                self.performSegue(withIdentifier: UNWIND, sender: nil)
                                 NotificationCenter.default.post(name: NOTIF_USER_DID_CHANGE, object: nil)
+                                self.performSegue(withIdentifier: UNWIND, sender: nil)
                             }
                         })
                     }
