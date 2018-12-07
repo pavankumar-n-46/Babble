@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		501D59FB21A5BD88002981BC /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D59FA21A5BD88002981BC /* UserDataService.swift */; };
+		5037A96421BA47BA00BF13DF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A96221BA47BA00BF13DF /* ProfileVC.swift */; };
+		5037A96521BA47BA00BF13DF /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5037A96321BA47BA00BF13DF /* ProfileVC.xib */; };
 		5042C01721A9A9A50079E8A0 /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042C01621A9A9A50079E8A0 /* AvatarPickerVC.swift */; };
 		5042C01921A9AD8C0079E8A0 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042C01821A9AD8C0079E8A0 /* AvatarCell.swift */; };
 		5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328921A2FAA10094B3F5 /* GradientView.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		501D59FA21A5BD88002981BC /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		5037A96221BA47BA00BF13DF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		5037A96321BA47BA00BF13DF /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		5042C01621A9A9A50079E8A0 /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		5042C01821A9AD8C0079E8A0 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		5060328921A2FAA10094B3F5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5037A96621BA47C100BF13DF /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				5037A96321BA47BA00BF13DF /* ProfileVC.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		5060328B21A324690094B3F5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +107,7 @@
 		5098B96621A29A7100B13AB9 /* Babble */ = {
 			isa = PBXGroup;
 			children = (
+				5037A96621BA47C100BF13DF /* XIBs */,
 				50BD632821A43DCD00E109B3 /* Services */,
 				5060328B21A324690094B3F5 /* Utilities */,
 				5098B98321A2A02B00B13AB9 /* View */,
@@ -128,6 +141,7 @@
 				5060328E21A32E960094B3F5 /* LoginVC.swift */,
 				50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */,
 				5042C01621A9A9A50079E8A0 /* AvatarPickerVC.swift */,
+				5037A96221BA47BA00BF13DF /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -237,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5037A96521BA47BA00BF13DF /* ProfileVC.xib in Resources */,
 				5098B97221A29A7200B13AB9 /* LaunchScreen.storyboard in Resources */,
 				5098B96F21A29A7200B13AB9 /* Assets.xcassets in Resources */,
 				5098B96D21A29A7100B13AB9 /* Main.storyboard in Resources */,
@@ -295,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5037A96421BA47BA00BF13DF /* ProfileVC.swift in Sources */,
 				5098B98521A2A04600B13AB9 /* ChatVC.swift in Sources */,
 				5042C01721A9A9A50079E8A0 /* AvatarPickerVC.swift in Sources */,
 				50BD632C21A459A900E109B3 /* RoundedButtons.swift in Sources */,

@@ -141,16 +141,7 @@ class AuthService{
                 
                 //using SwiftJSON
                 guard let data = response.data else {return}
-                let json = JSON(data: data)
-                let id = json["_id"].stringValue
-                let color = json["avatarColor"].stringValue
-                let avatarName = json["avatarName"].stringValue
-                let email = json["email"].stringValue
-                let name = json["name"].stringValue
-                
-                // setting the value in userDefaults.
-                UserDataService.instance.setUserData(id: id, name: name, email: email, avatarName: avatarName, color: color)
-                
+                self.setUserData(data: data)
                 completion(true)
             }else{
                 completion(false)
@@ -159,6 +150,31 @@ class AuthService{
         }
     }
     
+    func getUserByEmail(completion: @escaping completionHandler){
+        request("\(URL_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON { (response) in
+            if response.result.error == nil {
+                //using SwiftJSON
+                guard let data = response.data else {return}
+                self.setUserData(data: data)
+                completion(true)
+            }else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func setUserData(data: Data){
+        let json = JSON(data: data)
+        let id = json["_id"].stringValue
+        let color = json["avatarColor"].stringValue
+        let avatarName = json["avatarName"].stringValue
+        let email = json["email"].stringValue
+        let name = json["name"].stringValue
+        
+        // setting the value in userDefaults.
+        UserDataService.instance.setUserData(id: id, name: name, email: email, avatarName: avatarName, color: color)
+    }
     
 
 }
