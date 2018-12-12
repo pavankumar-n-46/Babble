@@ -21,14 +21,7 @@ class MessageService {
         request(URL_GET_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else {return}
-                //using json decoder
-//                do{
-//                    self.channels = try JSONDecoder().decode([Channel].self, from: data)
-//                } catch let error {
-//                    debugPrint(error as Any)
-//                }
-                
-                //using swiftyJSON
+    
                 if let json = JSON(data: data).array{
                     for index in json{
                         let name = index["name"].stringValue
@@ -37,6 +30,7 @@ class MessageService {
                         let channel = Channel.init(channelTitle: name, channelDescription: channelDescription, id: id)
                         self.channels.append(channel)
                     }
+                    print(self.channels)
                     completion(true)
                 }
             }else{
