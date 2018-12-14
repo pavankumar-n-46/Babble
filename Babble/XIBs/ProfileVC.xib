@@ -24,16 +24,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oO5-9f-1Y0">
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oO5-9f-1Y0">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etH-Dt-UaR">
-                    <rect key="frame" x="40" y="173.5" width="295" height="320"/>
+                    <rect key="frame" x="20" y="173.5" width="335" height="320"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9gN-Ag-uyZ">
-                            <rect key="frame" x="79.5" y="26.5" width="136.5" height="187.5"/>
+                            <rect key="frame" x="99.5" y="26.5" width="136.5" height="187.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-1S-T5g">
                                     <rect key="frame" x="18.5" y="0.0" width="99.5" height="21.5"/>
@@ -63,7 +62,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V1-QI-TJe">
-                            <rect key="frame" x="259" y="8" width="28" height="28"/>
+                            <rect key="frame" x="299" y="8" width="28" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="9pH-OR-6Z0"/>
                                 <constraint firstAttribute="width" constant="28" id="r71-H6-wEd"/>
@@ -73,12 +72,15 @@
                                 <action selector="closeModalPressed:" destination="-1" eventType="touchUpInside" id="Mo1-1p-LzU"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvo-jn-D1G">
-                            <rect key="frame" x="114" y="270" width="61" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvo-jn-D1G">
+                            <rect key="frame" x="42.5" y="270" width="250" height="34"/>
+                            <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="Khx-YI-8Ce"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                             <state key="normal" title="Logout">
-                                <color key="titleColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="logoutPressed:" destination="-1" eventType="touchUpInside" id="ZkL-lU-4vb"/>
@@ -88,16 +90,22 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="320" id="0m8-wn-18y"/>
+                        <constraint firstAttribute="bottom" secondItem="kvo-jn-D1G" secondAttribute="bottom" constant="16" id="Gqr-mA-Qrs"/>
                         <constraint firstItem="9gN-Ag-uyZ" firstAttribute="centerY" secondItem="etH-Dt-UaR" secondAttribute="centerY" constant="-40" id="TH2-pP-5qb"/>
                         <constraint firstItem="7V1-QI-TJe" firstAttribute="top" secondItem="etH-Dt-UaR" secondAttribute="top" constant="8" id="adC-QX-0KP"/>
                         <constraint firstItem="9gN-Ag-uyZ" firstAttribute="centerX" secondItem="etH-Dt-UaR" secondAttribute="centerX" id="gFL-5D-h94"/>
+                        <constraint firstItem="kvo-jn-D1G" firstAttribute="centerX" secondItem="etH-Dt-UaR" secondAttribute="centerX" id="h0u-rc-BdB"/>
                         <constraint firstAttribute="trailing" secondItem="7V1-QI-TJe" secondAttribute="trailing" constant="8" id="mMP-8k-nko"/>
                     </constraints>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="etH-Dt-UaR" secondAttribute="trailing" constant="40" id="0F8-oV-2wa"/>
-                <constraint firstItem="etH-Dt-UaR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="iBn-QE-QHD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="etH-Dt-UaR" secondAttribute="trailing" constant="20" id="0F8-oV-2wa"/>
+                <constraint firstItem="oO5-9f-1Y0" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="An0-p6-4TK"/>
+                <constraint firstItem="oO5-9f-1Y0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZNR-KZ-9X9"/>
+                <constraint firstItem="oO5-9f-1Y0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eX7-I9-Xek"/>
+                <constraint firstItem="oO5-9f-1Y0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hAq-RI-rFC"/>
+                <constraint firstItem="etH-Dt-UaR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="iBn-QE-QHD"/>
                 <constraint firstItem="etH-Dt-UaR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="m4U-UK-J7a"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

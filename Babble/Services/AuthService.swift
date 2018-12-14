@@ -97,15 +97,21 @@ class AuthService{
         request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             
             if response.result.error == nil {
-                
                 //using SwiftJSON
                 guard let data = response.data else {return}
                 let json = JSON(data: data)
-                self.userEmail = json["user"].stringValue
-                self.authToken = json["token"].stringValue
-                self.isLoggedIn = true
-                completion(true)
-                
+                if json["user"].exists(), json["token"].exists() {
+                    self.userEmail = json["user"].stringValue
+                    self.authToken = json["token"].stringValue
+                    if json["user"].string != nil, json["token"].string != nil{
+                        self.isLoggedIn = true
+                    }else{
+                        self.isLoggedIn = false
+                    }
+                    completion(true)
+                }else{
+                    completion(false)
+                }
             }else{
                 completion(false)
                 debugPrint(response.result.error as Any)
@@ -152,7 +158,7 @@ class AuthService{
     
     func getUserByEmail(completion: @escaping completionHandler){
         request("\(URL_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON { (response) in
-            if response.result.error == nil {
+              if response.result.error == nil {
                 //using SwiftJSON
                 guard let data = response.data else {return}
                 self.setUserData(data: data)

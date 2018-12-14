@@ -17,6 +17,7 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var loadingBgView: UIView!
     
     //variables
     var avatarName = "profileDefault"
@@ -68,7 +69,7 @@ class CreateAccountVC: UIViewController {
     @IBAction func createAccountPressed(_ sender: Any) {
         spinner.isHidden = false
         spinner.startAnimating()
-        self.cancelBtn.isEnabled = false
+        loadingBgView.isHidden = false
         ///check to see whether the email and pass fields are non empty.
         guard let name = usernameTxt.text, usernameTxt.text != "" else { return }
         guard let email = emailTxt.text, emailTxt.text != "" else{ return }
@@ -81,18 +82,34 @@ class CreateAccountVC: UIViewController {
                 AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
                     if success{
                         AuthService.instance.createUser(name: name, avatarName: self.avatarName, email: email, avatarColor: self.avatarColor, completion: { (success) in
+                            self.spinner.stopAnimating()
+                            self.loadingBgView.isHidden = true
                             if success{
-                                self.spinner.stopAnimating()
                                 //calls the add user method to add the user.
                                 print(UserDataService.instance.name , UserDataService.instance.avatarName )
                                 NotificationCenter.default.post(name: NOTIF_USER_DID_CHANGE, object: nil)
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
+                            }
+                            else{
+                                self.alertDisplay(title: "Error..!", msg: "Error Creating Account.")
                             }
                         })
                     }
                 })
             }
         }
+    }
+    
+    //utility
+    private func alertDisplay(title: String, msg: String){
+        let alertStr = NSMutableAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1),NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)] )
+        let alert = UIAlertController(title: alertStr.string, message: msg, preferredStyle: .alert)
+        alert.setValue(alertStr, forKey: "attributedTitle")
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
 

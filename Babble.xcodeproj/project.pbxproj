@@ -15,6 +15,8 @@
 		5037A96521BA47BA00BF13DF /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5037A96321BA47BA00BF13DF /* ProfileVC.xib */; };
 		5042C01721A9A9A50079E8A0 /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042C01621A9A9A50079E8A0 /* AvatarPickerVC.swift */; };
 		5042C01921A9AD8C0079E8A0 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042C01821A9AD8C0079E8A0 /* AvatarCell.swift */; };
+		5052B86621C116D300E771C2 /* AddChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052B86421C116D300E771C2 /* AddChannelVC.swift */; };
+		5052B86721C116D300E771C2 /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5052B86521C116D300E771C2 /* AddChannelVC.xib */; };
 		5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328921A2FAA10094B3F5 /* GradientView.swift */; };
 		5060328D21A324810094B3F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328C21A324810094B3F5 /* Constants.swift */; };
 		5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060328E21A32E960094B3F5 /* LoginVC.swift */; };
@@ -41,6 +43,8 @@
 		5037A96321BA47BA00BF13DF /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		5042C01621A9A9A50079E8A0 /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		5042C01821A9AD8C0079E8A0 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		5052B86421C116D300E771C2 /* AddChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelVC.swift; sourceTree = "<group>"; };
+		5052B86521C116D300E771C2 /* AddChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelVC.xib; sourceTree = "<group>"; };
 		5060328921A2FAA10094B3F5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5060328C21A324810094B3F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5060328E21A32E960094B3F5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5037A96321BA47BA00BF13DF /* ProfileVC.xib */,
+				5052B86521C116D300E771C2 /* AddChannelVC.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */,
 				5042C01621A9A9A50079E8A0 /* AvatarPickerVC.swift */,
 				5037A96221BA47BA00BF13DF /* ProfileVC.swift */,
+				5052B86421C116D300E771C2 /* AddChannelVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5052B86721C116D300E771C2 /* AddChannelVC.xib in Resources */,
 				5037A96521BA47BA00BF13DF /* ProfileVC.xib in Resources */,
 				5098B97221A29A7200B13AB9 /* LaunchScreen.storyboard in Resources */,
 				5098B96F21A29A7200B13AB9 /* Assets.xcassets in Resources */,
@@ -332,6 +339,7 @@
 				5060328F21A32E960094B3F5 /* LoginVC.swift in Sources */,
 				5060328A21A2FAA10094B3F5 /* GradientView.swift in Sources */,
 				5098B98721A2A05D00B13AB9 /* ChannelVC.swift in Sources */,
+				5052B86621C116D300E771C2 /* AddChannelVC.swift in Sources */,
 				50E025C721AFC49B008FD2E6 /* CircleImage.swift in Sources */,
 				5042C01921A9AD8C0079E8A0 /* AvatarCell.swift in Sources */,
 				50BD632A21A43DE800E109B3 /* AuthService.swift in Sources */,
@@ -488,7 +496,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7B5W83C7Y;
 				INFOPLIST_FILE = Babble/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7B5W83C7Y;
 				INFOPLIST_FILE = Babble/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
