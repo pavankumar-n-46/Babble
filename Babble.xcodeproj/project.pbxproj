@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5006653B21C38D3200E0A9B7 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006653A21C38D3200E0A9B7 /* SocketService.swift */; };
 		501D59FB21A5BD88002981BC /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D59FA21A5BD88002981BC /* UserDataService.swift */; };
 		5029D1D921BF8B90000C690F /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029D1D821BF8B90000C690F /* MessageService.swift */; };
 		5029D1DB21BF8D2E000C690F /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029D1DA21BF8D2E000C690F /* Channel.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5006653A21C38D3200E0A9B7 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		501D59FA21A5BD88002981BC /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		5029D1D821BF8B90000C690F /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		5029D1DA21BF8D2E000C690F /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				50BD632921A43DE800E109B3 /* AuthService.swift */,
 				501D59FA21A5BD88002981BC /* UserDataService.swift */,
 				5029D1D821BF8B90000C690F /* MessageService.swift */,
+				5006653A21C38D3200E0A9B7 /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5006653B21C38D3200E0A9B7 /* SocketService.swift in Sources */,
 				5037A96421BA47BA00BF13DF /* ProfileVC.swift in Sources */,
 				5029D1DD21BFB28B000C690F /* ChannelCell.swift in Sources */,
 				5098B98521A2A04600B13AB9 /* ChatVC.swift in Sources */,

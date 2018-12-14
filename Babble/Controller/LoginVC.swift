@@ -60,7 +60,7 @@ class LoginVC: UIViewController {
             }else{
                 self.loginBg.isHidden = true
                 self.spinner.stopAnimating()
-                self.alertDisplay(title: "Login Failed..!", msg: "Check your credentials and try again.")
+                self.alertDisplay(title: "Login Failed..!", msg: "Check your credentials and try again.") 
             }
         }
     }

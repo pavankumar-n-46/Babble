@@ -23,6 +23,11 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         ///specifies the width of which the chatVC should slide to. and the amount the ChannelVC should reveal.
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DID_CHANGE, object: nil)
+        
+        //socket stuff
+        SocketService.instance.getChannelList { (success) in
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +62,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             loginBtn.setTitle("\(UserDataService.instance.name)", for: .normal)
             loginImg.image = UIImage(named: "\(UserDataService.instance.avatarName)")
             loginImg.backgroundColor = UserDataService.instance.getUserAvatorColorFromString(components: UserDataService.instance.avatarColor)
+
         }else{
             loginBtn.setTitle("Login", for: .normal)
             loginImg.image = UIImage(named: "menuProfileIcon")

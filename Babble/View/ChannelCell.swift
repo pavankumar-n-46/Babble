@@ -28,7 +28,7 @@ class ChannelCell: UITableViewCell {
     }
 
     func configureCell(channel : Channel){
-        let title  = channel.channelTitle ?? "error!"
+        let title  = "#\(channel.channelTitle ?? String("error"))"
         channelName.text = title
     }
 }
