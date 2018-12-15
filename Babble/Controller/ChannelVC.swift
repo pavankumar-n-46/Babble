@@ -23,6 +23,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         ///specifies the width of which the chatVC should slide to. and the amount the ChannelVC should reveal.
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelChanged(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
         
         //socket stuff
         SocketService.instance.getChannelList { (success) in
@@ -37,6 +38,10 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc private func userDataDidChange(_ notif: Notification){
         setUpUserInfo()
+    }
+    
+    @objc private func channelChanged(_ notif: Notification){
+        tableView.reloadData()
     }
     
     //MARK:- navigation to LoginVC
@@ -67,6 +72,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             loginBtn.setTitle("Login", for: .normal)
             loginImg.image = UIImage(named: "menuProfileIcon")
             loginImg.backgroundColor = UIColor.clear
+            self.tableView.reloadData() 
         }
     }
     
@@ -86,6 +92,13 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }else{
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: NOTIF_CHANNEL_SELECTED, object: nil)
+        self.revealViewController()?.revealToggle(animated: true)
     }
     
 

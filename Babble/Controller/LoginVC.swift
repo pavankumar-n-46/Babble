@@ -51,7 +51,9 @@ class LoginVC: UIViewController {
                     self.spinner.stopAnimating()
                     if success{
                         NotificationCenter.default.post(name: NOTIF_USER_DID_CHANGE, object: nil)
-                        self.dismiss(animated: true, completion: nil)
+                        MessageService.instance.findAllChannels(completion: { (success) in
+                            self.dismiss(animated: true, completion: nil)
+                        })
                     }
                     if !success{
                         self.alertDisplay(title: "Login Failed..!", msg: "Check your credentials and try again.")

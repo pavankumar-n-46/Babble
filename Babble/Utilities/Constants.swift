@@ -39,3 +39,5 @@ let HEADER_AUTH = [
 
 //notificaiton center
 let NOTIF_USER_DID_CHANGE = Notification.Name("notifUserDataChanged")
+let NOTIF_CHANNELS_LOADED = Notification.Name("channelsLoaded")
+let NOTIF_CHANNEL_SELECTED = Notification.Name("channelSelected")

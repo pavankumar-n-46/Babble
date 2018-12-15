@@ -20,8 +20,14 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGest(_:)))
+        bgView.addGestureRecognizer(tap)
     }
-
+    
+    @objc func tapGest(_ tap: UITapGestureRecognizer){
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func closeModalPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
