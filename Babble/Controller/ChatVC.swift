@@ -12,10 +12,15 @@ class ChatVC: UIViewController {
 
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var chatLbl: UILabel!
+    @IBOutlet weak var messageTxtBox: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //keyboard upshift
+        view.bindToKeyboard()
+        //Tap Gesture
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTaps(_:)))
+        view.addGestureRecognizer(tap)
         ///SWReveal button, which specifies either to reveal or hide the hamburger menu upon touching the hamburger.
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
@@ -34,6 +39,10 @@ class ChatVC: UIViewController {
                 print("succes")
             }
         }
+    }
+    
+    @objc func handleTaps(_ gesture: UITapGestureRecognizer){
+        view.endEditing(true)
     }
     
     @objc private func userDataDidChange(_ notif: Notification){
@@ -67,10 +76,21 @@ class ChatVC: UIViewController {
         }
     }
     
+    @IBAction func sendMessage(_ sender: Any) {
+        guard let channelID = MessageService.instance.selectedChannel?.id else {return debugPrint("channelID not found in message Service")}
+        guard let messageTxt = messageTxtBox.text else { return debugPrint("empty message")}
+        SocketService.instance.addMessage(messageBody: messageTxt, userID: UserDataService.instance.id, channelID: channelID) { (success) in
+            if success{
+                self.messageTxtBox.text = ""
+                self.messageTxtBox.resignFirstResponder()
+            }
+        }
+    }
+    
     func getMessages(){
         guard let channelId = MessageService.instance.selectedChannel?.id else {return}
         MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
-            //todo: load the messages
+            //todo: load the messages 
         }
     }
     

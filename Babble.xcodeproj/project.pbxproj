@@ -32,6 +32,7 @@
 		50BD632721A3DF7500E109B3 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */; };
 		50BD632A21A43DE800E109B3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632921A43DE800E109B3 /* AuthService.swift */; };
 		50BD632C21A459A900E109B3 /* RoundedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD632B21A459A900E109B3 /* RoundedButtons.swift */; };
+		50DBF89721D50DAE003165F0 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DBF89621D50DAE003165F0 /* KeyboardBoundView.swift */; };
 		50E025C721AFC49B008FD2E6 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E025C621AFC49B008FD2E6 /* CircleImage.swift */; };
 		CA28C1FCB130CFCAB922636C /* Pods_Babble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		50BD632621A3DF7500E109B3 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		50BD632921A43DE800E109B3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		50BD632B21A459A900E109B3 /* RoundedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtons.swift; sourceTree = "<group>"; };
+		50DBF89621D50DAE003165F0 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		50E025C621AFC49B008FD2E6 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		BFECB68B2DF4E707E9DB1905 /* Pods_Babble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB1367C1F93A11CE1978F4D /* Pods-Babble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babble/Pods-Babble.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				5042C01821A9AD8C0079E8A0 /* AvatarCell.swift */,
 				50E025C621AFC49B008FD2E6 /* CircleImage.swift */,
 				5029D1DC21BFB28B000C690F /* ChannelCell.swift */,
+				50DBF89621D50DAE003165F0 /* KeyboardBoundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DBF89721D50DAE003165F0 /* KeyboardBoundView.swift in Sources */,
 				5006653B21C38D3200E0A9B7 /* SocketService.swift in Sources */,
 				5037A96421BA47BA00BF13DF /* ProfileVC.swift in Sources */,
 				5029D1DD21BFB28B000C690F /* ChannelCell.swift in Sources */,
