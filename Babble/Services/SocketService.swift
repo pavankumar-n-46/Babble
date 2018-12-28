@@ -37,8 +37,8 @@ class SocketService: NSObject {
     func getChannelList(completion:@escaping completionHandler){
         socket.on("channelCreated") { (dataArray, ack) in
             guard let channelName = dataArray[0] as? String else { print("error"); return}
-            guard let channelDesc = dataArray[0] as? String else { print("error"); return}
-            guard let channelId = dataArray[0] as? String else { print("error"); return}
+            guard let channelDesc = dataArray[1] as? String else { print("error"); return}
+            guard let channelId = dataArray[2] as? String else { print("error"); return}
             let newChannel = Channel.init(channelTitle: channelName, channelDescription: channelDesc, id: channelId)
             MessageService.instance.channels.append(newChannel)
             completion(true)
@@ -51,4 +51,23 @@ class SocketService: NSObject {
         completion(true)
     }
     
+    func getMessages(completion: @escaping completionHandler){
+        socket.on("messageCreated") { (dataArray, ack) in
+            guard let messageBody = dataArray[0] as? String else { print("error"); return}
+            guard let channelID = dataArray[2] as? String else { print("error"); return}
+            guard let userName = dataArray[3] as? String else { print("error"); return}
+            guard let userAvatar = dataArray[4] as? String else { print("error"); return}
+            guard let userAvatarColor = dataArray[5] as? String else { print("error"); return}
+            guard let msgID = dataArray[6] as? String else { print("error"); return}
+            guard let timeStamp = dataArray[6] as? String else { print("error"); return}
+            
+            if channelID == MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn{
+                let newMessage = Message.init(message: messageBody, userName: userName, channelId: channelID, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: msgID, timeStamp: timeStamp)
+                MessageService.instance.messages.append(newMessage)
+                completion(true)
+            }else{
+                completion(false)
+            }
+        }
+    }
 }

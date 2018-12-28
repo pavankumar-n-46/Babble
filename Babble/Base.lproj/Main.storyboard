@@ -72,6 +72,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="msgBoxEditing:" destination="PnC-Vn-P2b" eventType="editingChanged" id="OMi-O3-7kk"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgK-R0-EtP">
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
@@ -165,6 +168,7 @@
                         <outlet property="chatLbl" destination="rL6-FU-mqw" id="1zD-8n-rj2"/>
                         <outlet property="menuBtn" destination="ZZK-zM-unI" id="een-TU-qA4"/>
                         <outlet property="messageTxtBox" destination="fox-ZQ-Lru" id="2Sv-vB-3nS"/>
+                        <outlet property="sendBtn" destination="tgK-R0-EtP" id="9Xa-ba-hWb"/>
                         <outlet property="tableView" destination="QGr-1p-Gpb" id="XYl-C6-jjX"/>
                     </connections>
                 </viewController>

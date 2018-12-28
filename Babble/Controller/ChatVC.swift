@@ -14,6 +14,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var chatLbl: UILabel!
     @IBOutlet weak var messageTxtBox: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendBtn: UIButton!
+    
+    //vars
+    var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //Tap Gesture
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTaps(_:)))
         view.addGestureRecognizer(tap)
+        //send btn
+        sendBtn.isHidden = true
         //SWReveal button, which specifies either to reveal or hide the hamburger menu upon touching the hamburger.
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         //table view
@@ -33,9 +39,20 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //this are the gustures to for the SWRevealViewController.
         self.view.addGestureRecognizer((self.revealViewController()!.panGestureRecognizer()))
         self.view.addGestureRecognizer(self.revealViewController()!.tapGestureRecognizer())
-        
+        //notificaiton observers
         NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NOTIF_USER_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
+        //socket get new messages
+        SocketService.instance.getMessages { (success) in
+            if success{
+                self.tableView.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count-1, section: 0)
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: true)
+                } 
+            }
+        }
+        
         
         if AuthService.instance.isLoggedIn{
             AuthService.instance.getUserByEmail { (success) in
@@ -56,6 +73,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             onLoginGetMessages()
         }else{
             chatLbl.text = "please login"
+            tableView.reloadData()
         }
     }
     
@@ -90,6 +108,18 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 self.messageTxtBox.text = ""
                 self.messageTxtBox.resignFirstResponder()
             }
+        }
+    }
+    
+    @IBAction func msgBoxEditing(_ sender: Any) {
+        if messageTxtBox.text == "" {
+            isTyping = false
+            sendBtn.isHidden = true
+        }else{
+            if isTyping == false{
+                sendBtn.isHidden = false
+            }
+            isTyping = true
         }
     }
     
