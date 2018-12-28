@@ -15,33 +15,43 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var messageTxtBox: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var typingUsers: UILabel!
     
     //vars
     var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //keyboard upshift
         view.bindToKeyboard()
+        
         //Tap Gesture
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTaps(_:)))
         view.addGestureRecognizer(tap)
+        
         //send btn
-        sendBtn.isHidden = true
+        sendBtn.isHidden = true 
+        
         //SWReveal button, which specifies either to reveal or hide the hamburger menu upon touching the hamburger.
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        
         //table view
         tableView.dataSource = self
         tableView.delegate = self
+        
         //making tableview cell height dynamic
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        
         //this are the gustures to for the SWRevealViewController.
         self.view.addGestureRecognizer((self.revealViewController()!.panGestureRecognizer()))
         self.view.addGestureRecognizer(self.revealViewController()!.tapGestureRecognizer())
+        
         //notificaiton observers
         NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NOTIF_USER_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
+        
         //socket get new messages
         SocketService.instance.getMessages { (success) in
             if success{
@@ -53,6 +63,32 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             }
         }
         
+        SocketService.instance.getTypingUser { (typingUsers) in
+            guard let channelID = MessageService.instance.selectedChannel?.id else { return }
+            var names = ""
+            var numberOfTypers = 0
+            
+            for (typingUser,channel) in typingUsers{
+                if typingUser != UserDataService.instance.name && channel == channelID{
+                    if names == ""{
+                        names = typingUser
+                    }else{
+                        names += " \(typingUser)"
+                    }
+                    numberOfTypers += 1
+                }
+            }
+            
+            if numberOfTypers > 0 && AuthService.instance.isLoggedIn == true{
+                var verb = "is"
+                if numberOfTypers > 1{
+                    verb = "are"
+                }
+                self.typingUsers.text = "\(names) \(verb) typing a message"
+            }else{
+                self.typingUsers.text = ""
+            }
+        }
         
         if AuthService.instance.isLoggedIn{
             AuthService.instance.getUserByEmail { (success) in
@@ -101,23 +137,29 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     @IBAction func sendMessage(_ sender: Any) {
-        guard let channelID = MessageService.instance.selectedChannel?.id else {return debugPrint("channelID not found in message Service")}
-        guard let messageTxt = messageTxtBox.text else { return debugPrint("empty message")}
-        SocketService.instance.addMessage(messageBody: messageTxt, userID: UserDataService.instance.id, channelID: channelID) { (success) in
-            if success{
-                self.messageTxtBox.text = ""
-                self.messageTxtBox.resignFirstResponder()
+        if AuthService.instance.isLoggedIn{
+            guard let channelID = MessageService.instance.selectedChannel?.id else {return debugPrint("channelID not found in message Service")}
+            guard let messageTxt = messageTxtBox.text else { return debugPrint("empty message")}
+            SocketService.instance.addMessage(messageBody: messageTxt, userID: UserDataService.instance.id, channelID: channelID) { (success) in
+                if success{
+                    self.messageTxtBox.text = ""
+                    self.messageTxtBox.resignFirstResponder()
+                    SocketService.instance.socket.emit("stopType",UserDataService.instance.name, channelID)
+                }
             }
         }
     }
     
     @IBAction func msgBoxEditing(_ sender: Any) {
+        guard let channelID = MessageService.instance.selectedChannel?.id else {return}
         if messageTxtBox.text == "" {
             isTyping = false
             sendBtn.isHidden = true
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelID)
         }else{
             if isTyping == false{
                 sendBtn.isHidden = false
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelID)
             }
             isTyping = true
         }

@@ -76,7 +76,7 @@
                                     <action selector="msgBoxEditing:" destination="PnC-Vn-P2b" eventType="editingChanged" id="OMi-O3-7kk"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgK-R0-EtP">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgK-R0-EtP">
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="VwH-ng-ybI"/>
@@ -146,10 +146,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGl-8P-oMs">
+                                <rect key="frame" x="8" y="621" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VdS-Tx-LP1" firstAttribute="trailing" secondItem="fox-ZQ-Lru" secondAttribute="trailing" id="1fx-Ff-uu9"/>
+                            <constraint firstItem="nGl-8P-oMs" firstAttribute="leading" secondItem="VdS-Tx-LP1" secondAttribute="leading" constant="8" id="4r4-ZW-ltm"/>
+                            <constraint firstItem="fox-ZQ-Lru" firstAttribute="top" secondItem="nGl-8P-oMs" secondAttribute="bottom" constant="6" id="Eem-YG-SIb"/>
                             <constraint firstItem="QGr-1p-Gpb" firstAttribute="trailing" secondItem="VdS-Tx-LP1" secondAttribute="trailing" id="FCR-1k-p5D"/>
                             <constraint firstItem="fox-ZQ-Lru" firstAttribute="bottom" secondItem="VdS-Tx-LP1" secondAttribute="bottom" id="ILL-Hc-kHa"/>
                             <constraint firstItem="QGr-1p-Gpb" firstAttribute="top" secondItem="ZoB-Tj-yIw" secondAttribute="bottom" id="JO8-pW-64z"/>
@@ -170,6 +178,7 @@
                         <outlet property="messageTxtBox" destination="fox-ZQ-Lru" id="2Sv-vB-3nS"/>
                         <outlet property="sendBtn" destination="tgK-R0-EtP" id="9Xa-ba-hWb"/>
                         <outlet property="tableView" destination="QGr-1p-Gpb" id="XYl-C6-jjX"/>
+                        <outlet property="typingUsers" destination="nGl-8P-oMs" id="PHj-eH-Pd2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptx-Dn-TZV" userLabel="First Responder" sceneMemberID="firstResponder"/>

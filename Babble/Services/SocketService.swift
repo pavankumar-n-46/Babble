@@ -70,4 +70,11 @@ class SocketService: NSObject {
             }
         }
     }
+    
+    func getTypingUser(_ completion: @escaping ([String: String]) -> Void){
+        socket.on("userTypingUpdate") { (data, ack) in
+            guard let typingUsers = data[0] as? [String:String] else {return}
+            completion(typingUsers)
+        }
+    }
 }
