@@ -43,8 +43,11 @@ class MessageService {
     }
     
     func findAllMessagesForChannel(channelId : String, completion: @escaping completionHandler){
-        request("\(URL_GET_MESSAGES)\(channelId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON { (response) in
+        let url_path = "\(URL_GET_MESSAGES)/\(channelId)"
+        print(url_path)
+        request(url_path, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON { (response) in
             if response.result.error == nil{
+                self.messages.removeAll()
                 guard let data = response.data else {return}
                 if let jsonArray = JSON(data: data).array{
                     for item in jsonArray{

@@ -1,0 +1,29 @@
+//
+//  MessageCell.swift
+//  Babble
+//
+//  Created by Pavan Kumar N on 28/12/2018.
+//  Copyright © 2018 Pavan Kumar N. All rights reserved.
+//
+
+import UIKit
+
+class MessageCell: UITableViewCell {
+
+    //outlets
+    @IBOutlet weak var profileImg: CircleImage!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var msgTxtLbl: UILabel!
+    @IBOutlet weak var userNameLbl: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    func configureCell(message: Message){
+        profileImg.image = UIImage(named: message.userAvatar)
+        profileImg.backgroundColor = UserDataService.instance.getUserAvatorColorFromString(components: message.userAvatarColor)
+        userNameLbl.text = message.userName
+        msgTxtLbl.text = message.message
+    }
+}
