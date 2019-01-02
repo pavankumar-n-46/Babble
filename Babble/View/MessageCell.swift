@@ -25,5 +25,22 @@ class MessageCell: UITableViewCell {
         profileImg.backgroundColor = UserDataService.instance.getUserAvatorColorFromString(components: message.userAvatarColor)
         userNameLbl.text = message.userName
         msgTxtLbl.text = message.message
+        
+        ///to slice the ISO timestring to remove the microsecond part
+        guard var isoDate = message.timeStamp else {return}
+        let endIndex = isoDate.index(isoDate.endIndex, offsetBy: -5)
+        isoDate = isoDate.substring(to: endIndex)
+        
+        let isoFormatter = ISO8601DateFormatter()
+        let chatDate = isoFormatter.date(from: isoDate.appending("Z"))
+        
+        let newFormatter = DateFormatter()
+        newFormatter.dateFormat = "MMM d, h:mm a"
+        
+        if let finalDate = chatDate{
+            let finalDate = newFormatter.string(from: finalDate)
+            timeLbl.text = finalDate
+        }
     }
 }
+  
